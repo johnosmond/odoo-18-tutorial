@@ -1,0 +1,28 @@
+# Ignore everything by default
+*
+
+# But keep these (so Git can track them)
+!.gitignore
+!README.md
+
+# Track ONLY our custom work
+!custom/
+!custom/**
+
+# Common local-only stuff (defensive)
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.tox/
+**/.coverage
+**/*.log
+
+# Virtual environments (in case one lives under here)
+venv/
+.venv/
+env/
+.python-version
