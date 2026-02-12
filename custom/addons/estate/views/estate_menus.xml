@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top-level app -->
+    <menuitem id="menu_estate_root"
+              name="Real Estate"
+              groups="estate.group_estate_user"
+              sequence="10"/>
+
+    <!-- First level -->
+    <menuitem id="menu_estate_ads"
+              name="Advertisements"
+              parent="menu_estate_root"
+              sequence="10"/>
+
+    <!-- Second level: action menu -->
+    <menuitem id="menu_estate_properties"
+              name="Properties"
+              parent="menu_estate_ads"
+              action="action_estate_property"
+              sequence="10"/>
+
+</odoo>
