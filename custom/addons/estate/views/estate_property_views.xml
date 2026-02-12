@@ -51,7 +51,8 @@
     <menuitem id="menu_estate_root" 
               name="Estate"
               sequence="10"
-              web_icon="estate,static/description/icon.png"/>
+              web_icon="estate,static/description/icon.png"
+              groups="estate.group_estate_user"/>
     <menuitem id="menu_estate_properties"
               name="Properties"
               parent="menu_estate_root"

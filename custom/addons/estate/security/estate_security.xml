@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Module category shown in Settings > Users & Companies > Groups -->
+    <record id="module_category_estate" model="ir.module.category">
+        <field name="name">Real Estate</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Group -->
+    <record id="group_estate_user" model="res.groups">
+        <field name="name">Estate User</field>
+        <field name="category_id" ref="estate.module_category_estate"/>
+    </record>
+
+</odoo>
