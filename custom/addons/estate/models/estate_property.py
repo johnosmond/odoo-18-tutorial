@@ -29,3 +29,27 @@ class EstateProperty(models.Model):
             ('west', 'West'),
         ]
     )
+    active = fields.Boolean(default=True)
+
+    state = fields.Selection(
+        [
+            ('new', 'New Listing'),
+            ('offer_received', 'Offer Received'),
+            ('offer_accepted', 'Offer Accepted'),
+            ('sold', 'Sold'),
+            ('cancelled', 'Cancelled'),
+        ],
+        string='Status',
+        default='new',
+        required=True,
+        copy=False,
+    )
+
+    def action_set_sold(self):
+        for record in self:
+            record.state = 'sold'
+
+    def action_set_cancelled(self):
+        for record in self:
+            record.state = 'cancelled'
+
