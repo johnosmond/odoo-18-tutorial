@@ -49,8 +49,8 @@
                                 <field name="facades"/>
                                 <field name="garage"/>
                                 <field name="garden"/>
-                                <field name="garden_area"/>
-                                <field name="garden_orientation"/>
+                                <field name="garden_area" invisible="not garden"/>
+                                <field name="garden_orientation" invisible="not garden"/>
                             </group>
                         </page>
                     </notebook>
@@ -77,15 +77,19 @@
             <search>
                 <field name="name"/>
                 <field name="postcode"/>
-
                 <filter string="Available" name="available"
                         domain="[('state', 'in', ('new','offer_received'))]"/>
-
+                <filter string="Archived"
+                        name="archived"
+                        domain="[('active', '=', False)]"/>
                 <group expand="0" string="Group By">
                     <filter string="Postcode" name="group_by_postcode"
                             context="{'group_by': 'postcode'}"/>
                     <filter string="State" name="group_by_state"
                             context="{'group_by': 'state'}"/>
+                    <filter string="Active"
+                            name="group_by_active"
+                            context="{'group_by': 'active'}"/>  
                 </group>
             </search>
         </field>
