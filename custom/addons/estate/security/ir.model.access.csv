@@ -3,3 +3,4 @@ access_estate_property_user,estate.property user,model_estate_property,estate.gr
 access_estate_property_type,estate.property.type,model_estate_property_type,,1,1,1,1
 access_estate_property_tag,estate.property.tag,model_estate_property_tag,,1,1,1,1
 access_estate_property_offer,estate.property.offer,model_estate_property_offer,,1,1,1,1
+access_estate_offer_warning_wizard,estate.offer.warning.wizard,model_estate_offer_warning_wizard,,1,1,1,1
