@@ -103,3 +103,31 @@ class EstatePropertyOffer(models.Model):
 		for offer in self:
 			offer.status = "refused"
 		return {"type": "ir.actions.client", "tag": "reload"}
+	
+	# validity and deadline computation
+	validity = fields.Integer(
+		string="Validity (days)",
+		default=7,
+	)
+
+	date_deadline = fields.Date(
+		string="Deadline",
+		compute="_compute_date_deadline",
+		inverse="_inverse_date_deadline",
+		store=True,
+	)
+
+	@api.depends("create_date", "validity")
+	def _compute_date_deadline(self):
+		for record in self:
+			# create_date is empty until the record is saved the first time
+			base_date = (record.create_date.date() if record.create_date else fields.Date.context_today(record))
+			record.date_deadline = base_date + timedelta(days=record.validity or 0)
+
+	def _inverse_date_deadline(self):
+		for record in self:
+			if not record.date_deadline:
+				record.validity = 0
+				continue
+			base_date = (record.create_date.date() if record.create_date else fields.Date.context_today(record))
+			record.validity = (record.date_deadline - base_date).days

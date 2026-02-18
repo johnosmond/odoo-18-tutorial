@@ -11,6 +11,7 @@
 				<field name="expected_price"/>
 				<field name="bedrooms" optional="show"/>
 				<field name="living_area" optional="show"/>
+				<field name="total_area" optional="hide" readonly="1"/>
 				<field name="state" optional="show"/>
 			</list>
 		</field>
@@ -52,6 +53,7 @@
 								<field name="garden"/>
 								<field name="garden_area" invisible="not garden"/>
 								<field name="garden_orientation" invisible="not garden"/>
+								<field name="total_area" readonly="1"/>
 								<field name="tag_ids" widget="many2many_tags"/>
 							</group>
 						</page>
@@ -61,10 +63,8 @@
 									<field name="price"/>
 									<field name="partner_id"/>
 									<field name="status"/>
-									<field name="price"/>
 									<field name="validity"/>
 									<field name="date_deadline"/>
-									<field name="status"/>
 									<button name="action_accept" type="object" string="Accept" class="btn-primary"
 											attrs="{'invisible': [('status', '=', 'accepted')]}"/>
 									<button name="action_refuse" type="object" string="Refuse" class="btn-secondary"
